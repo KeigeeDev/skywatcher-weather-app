@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Sky Watcher: Weather App</title>
 </head>
 
 <body>
     <header>
         <h1>Sky Watcher</h1>
-        <p>Check the weather in your city</p>
+        <p>Real-Time Analytics for the Aviation Community</p>
     </header>
 
     <main id="weather-container">
@@ -19,15 +19,20 @@
             <button id="search-button"
                 onclick="getWeatherData(document.getElementById('city-input').value)">Search</button>
         </section>
-        <section id="weather-info">
-            <h2 id="city-name"></h2>
-            <p id="temperature"></p>
-            <p id="description"></p>
-            <p id="humidity"></p>
-            <p id="wind-speed"></p>
-        </section>
         <section id="error-message">
             <p id="error-message"></p>
+        </section>
+        <section id="weather-info">
+            <h2 id="city-name"></h2>
+            <div id="weather-details">
+                <p id="temperature"></p>
+                <img id="weather-icon" alt="Weather Icon" width="64" height="64" src="" style="display: none;">
+            </div>
+            <div id="weather-conditions">
+                <p id="humidity"></p>
+                <p id="wind-speed"></p>
+                <p id="condition"></p>
+            </div>
         </section>
     </main>
     <script src="config.js"></script>
