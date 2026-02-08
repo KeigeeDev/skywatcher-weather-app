@@ -1,5 +1,5 @@
 async function getWeatherData(city) {
-    const API_KEY = process.env.WEATHER_API_KEY;
+    const API_KEY = CONFIG.WEATHER_API_KEY;
     const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`;
 
     const response = await fetch(URL);
