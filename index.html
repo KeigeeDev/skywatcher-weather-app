@@ -16,7 +16,8 @@
     <main id="weather-container">
         <section id="search-container">
             <input type="text" id="city-input" placeholder="Enter city name">
-            <button id="search-button">Search</button>
+            <button id="search-button"
+                onclick="getWeatherData(document.getElementById('city-input').value)">Search</button>
         </section>
         <section id="weather-info">
             <h2 id="city-name"></h2>
