@@ -28,7 +28,27 @@ function updateUI(data) {
     weatherIcon.src = data.current.condition.icon;
     weatherIcon.style.display = 'block';
     const condition = data.current.condition.text.toLowerCase();
-    // updateBackground(condition);
+    const weatherCategory = getWeatherCategory(condition);
+    document.body.className = `weather-${weatherCategory}`;
+}
+
+function getWeatherCategory(condition) {
+    const lowerCaseCondition = condition.toLowerCase();
+    if (condition.includes('rain') || condition.includes('drizzle') || condition.includes('shower')) {
+        return 'rain';
+    } else if (condition.includes('snow') || condition.includes('sleet') || condition.includes('ice') || condition.includes('blizzard')) {
+        return 'snow';
+    } else if (condition.includes('thunder')) {
+        return 'thunder';
+    } else if (condition.includes('cloud') || condition.includes('overcast')) {
+        return 'cloudy';
+    } else if (condition.includes('mist') || condition.includes('fog')) {
+        return 'fog';
+    } else if (condition.includes('sunny') || condition.includes('clear')) {
+        return 'clear';
+    } else {
+        return 'default';
+    }
 }
 
 function handleError(city) {
