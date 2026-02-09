@@ -23,7 +23,7 @@ async function getWeatherData(city) {
     const response = await fetch(URL);
     if (!response.ok) {
         handleError(city);
-        document.getElementById('error-message').style.display = 'block';
+        document.getElementById('error-message').style.display = 'flex';
         document.getElementById('loading').style.display = 'none';
     } else {
         updateUI(await response.json());
@@ -44,27 +44,67 @@ function updateUI(data) {
     weatherIcon.style.display = 'block';
     const condition = data.current.condition.text.toLowerCase();
     const weatherCategory = getWeatherCategory(condition);
-    document.body.className = `weather-${weatherCategory}`;
+
+    // Get the background image URL for this weather category
+    const backgroundMap = {
+        'clear': 'images/clear.jpg',
+        'cloudy': 'images/cloudy.jpg',
+        'rain': 'images/rain.jpg',
+        'snow': 'images/snow.jpg',
+        'thunder': 'images/thunder.jpg',
+        'fog': 'images/fog.jpg',
+        'default': 'images/default.jpg'
+    };
+
+    const backgroundUrl = backgroundMap[weatherCategory] || backgroundMap['default'];
+
+    // Crossfade implementation using ::before pseudo-element
+    const img = new Image();
+    img.onload = function () {
+        // Set the new background on the ::before layer
+        const styleSheet = document.styleSheets[0];
+        const beforeRule = Array.from(styleSheet.cssRules).find(
+            rule => rule.selectorText === 'body::before'
+        );
+        if (beforeRule) {
+            beforeRule.style.backgroundImage = `url('${backgroundUrl}')`;
+        }
+
+        // Trigger fade-in by adding transitioning class
+        document.body.classList.add('transitioning');
+
+        // After transition completes, swap backgrounds and reset
+        setTimeout(() => {
+            document.body.className = `weather-${weatherCategory}`;
+            document.body.classList.remove('transitioning');
+            // Reset ::before opacity for next transition
+            if (beforeRule) {
+                beforeRule.style.backgroundImage = '';
+            }
+        }, 800); // Match the CSS transition duration
+    };
+    img.src = backgroundUrl;
 }
 
 function getWeatherCategory(condition) {
     const lowerCaseCondition = condition.toLowerCase();
-    if (condition.includes('rain') || condition.includes('drizzle') || condition.includes('shower')) {
+    if (lowerCaseCondition.includes('rain') || lowerCaseCondition.includes('drizzle') || lowerCaseCondition.includes('shower')) {
         return 'rain';
-    } else if (condition.includes('snow') || condition.includes('sleet') || condition.includes('ice') || condition.includes('blizzard')) {
+    } else if (lowerCaseCondition.includes('snow') || lowerCaseCondition.includes('sleet') || lowerCaseCondition.includes('ice') || lowerCaseCondition.includes('blizzard')) {
         return 'snow';
-    } else if (condition.includes('thunder')) {
+    } else if (lowerCaseCondition.includes('thunder')) {
         return 'thunder';
-    } else if (condition.includes('cloud') || condition.includes('overcast')) {
+    } else if (lowerCaseCondition.includes('cloud') || lowerCaseCondition.includes('overcast')) {
         return 'cloudy';
-    } else if (condition.includes('mist') || condition.includes('fog')) {
+    } else if (lowerCaseCondition.includes('mist') || lowerCaseCondition.includes('fog')) {
         return 'fog';
-    } else if (condition.includes('sunny') || condition.includes('clear')) {
+    } else if (lowerCaseCondition.includes('sunny') || lowerCaseCondition.includes('clear')) {
         return 'clear';
     } else {
         return 'default';
     }
 }
+
 
 function handleError(city) {
     errorMessageElement.innerHTML = `
