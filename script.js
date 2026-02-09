@@ -6,20 +6,35 @@ const humidityDisplay = document.getElementById('humidity');
 const windSpeedDisplay = document.getElementById('wind-speed');
 const weatherIcon = document.getElementById('weather-icon');
 
+document.getElementById('error-message').style.display = 'none';
+
+document.getElementById('city-input').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        getWeatherData(this.value);
+    }
+});
+
 async function getWeatherData(city) {
     const API_KEY = CONFIG.WEATHER_API_KEY;
     const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`;
+    document.getElementById('loading').style.display = 'block';
+
 
     const response = await fetch(URL);
     if (!response.ok) {
         handleError(city);
+        document.getElementById('error-message').style.display = 'block';
+        document.getElementById('loading').style.display = 'none';
     } else {
         updateUI(await response.json());
+        document.getElementById('error-message').style.display = 'none';
+        document.getElementById('loading').style.display = 'none';
     }
 }
 
 function updateUI(data) {
     errorMessageElement.textContent = '';
+    document.getElementById('weather-info').classList.add('show');
     tempDisplay.innerText = `Temperature: ${Math.round(data.current.temp_c)}°C`;
     cityDisplay.innerText = `City: ${data.location.name}`;
     conditionDisplay.innerText = `Condition: ${data.current.condition.text}`;
