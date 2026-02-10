@@ -1,0 +1,11 @@
+export const errorMessageElement = document.getElementById('error-message');
+export const tempDisplay = document.getElementById('temperature');
+export const cityDisplay = document.getElementById('city-name');
+export const conditionDisplay = document.getElementById('condition');
+export const humidityDisplay = document.getElementById('humidity');
+export const windSpeedDisplay = document.getElementById('wind-speed');
+export const weatherIcon = document.getElementById('weather-icon');
+export const loadingEl = document.getElementById('loading');
+export const weatherInfo = document.getElementById('weather-info');
+export const cityInput = document.getElementById('city-input');
+export const searchButton = document.getElementById('search-button');
