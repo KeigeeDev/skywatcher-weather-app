@@ -1,10 +1,9 @@
 import { loadingEl, errorMessageElement } from './domRefs.js';
 import { updateUI, handleError } from './weatherUI.js';
-import { CONFIG } from '../config/config.js';
 
 export async function getWeatherData(query) {
-    const API_KEY = CONFIG.WEATHER_API_KEY;
-    const URL = `${CONFIG.BASE_URL}?key=${API_KEY}&q=${query}&aqi=no`;
+    const API_KEY = process.env.WEATHER_API_KEY;
+    const URL = `${process.env.BASE_URL}?key=${API_KEY}&q=${query}&aqi=no`;
 
     loadingEl.style.display = 'block';
 
