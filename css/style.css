@@ -1,7 +1,7 @@
 :root {
     /* Colors */
-    --color-primary: #4f46e5;
-    --color-primary-hover: #4338ca;
+    --color-primary: #2E28BA;
+    --color-primary-hover: #1A1675;
     --color-accent: #22c55e;
     --color-bg: #f9fafb;
     --color-surface: #ffffff;
@@ -138,6 +138,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    font-family: var(--font-heading);
 }
 
 header h1 {
@@ -145,26 +146,45 @@ header h1 {
     font-size: 2.5rem;
     margin: 0;
     text-transform: uppercase;
-    filter: drop-shadow(0 4px 4px rgba(255, 255, 255, 0.5));
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.5));
 }
+
 
 #search-container {
     display: flex;
     gap: var(--space-2);
-    max-width: 500px;
-    margin: var(--space-5) auto;
+    padding: 0 var(--space-4) var(--space-3);
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.search-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper svg {
+    position: absolute;
+    left: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 2;
 }
 
 #city-input {
-    flex: 1;
-    padding: var(--space-3) var(--space-4);
+    width: 100%;
+    padding: var(--space-3) var(--space-4) var(--space-3) 3rem;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.9);
+    background-color: #E9EDF0;
     font-family: var(--font-body);
     font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+
 }
 
 #city-input:focus {
@@ -191,6 +211,7 @@ header h1 {
 
 #search-button:hover {
     transform: translateY(-2px);
+    background-color: var(--color-primary-hover);
     box-shadow: var(--shadow-lg);
 }
 
@@ -246,11 +267,23 @@ header h1 {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
+#weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
 #weather-conditions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: var(--space-3);
-    margin-top: var(--space-4);
 }
 
 #weather-conditions p {
