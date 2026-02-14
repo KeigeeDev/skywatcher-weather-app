@@ -389,27 +389,62 @@ header h1 {
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
+
+    /* Make the main container fluid */
+    .container {
+        width: 95%;
+        padding: var(--space-3);
+        margin: var(--space-3) 0;
+        gap: var(--space-3);
     }
 
-    header p {
-        font-size: 0.875rem;
+    /* scale down the header for better fit */
+    header h1 {
+        font-size: 1.5rem;
+        /* Reduced from 2rem for better fluidity */
+        text-align: center;
+        width: 100%;
     }
 
     #search-container {
         flex-direction: column;
+        width: 100%;
+        gap: var(--space-3);
+        padding: 0 0 var(--space-3);
+        /* Tighten up spacing */
+    }
+
+    #weather-info {
+        width: 100%;
+        padding: var(--space-2);
     }
 
     #temperature {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin: var(--space-2);
     }
 
     #city-name {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        margin: var(--space-2);
     }
 
+    /* Stack cards elegantly */
     #weather-conditions {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        width: 100%;
+        margin: var(--space-2) 0;
+    }
+
+    .weather-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        width: 100%;
+        justify-content: center;
+        padding: var(--space-3);
+    }
+
+    .weather-card:last-child {
+        border-bottom: none;
     }
 }
