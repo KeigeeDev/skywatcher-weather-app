@@ -64,14 +64,103 @@
             </section>
             <section id="weather-info">
                 <h2 id="city-name"></h2>
-                <div id="weather-details">
-                    <p id="temperature"></p>
-                    <img id="weather-icon" alt="Weather Icon" width="64" height="64" src="" style="display: none;">
-                </div>
+                <h3 id="temperature"></h3>
                 <div id="weather-conditions">
-                    <p id="humidity"></p>
-                    <p id="wind-speed"></p>
-                    <p id="condition"></p>
+                    <div class="weather-card">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_dd_9_132)">
+                                <path
+                                    d="M18 4.03497L26.49 12.525C28.169 14.2029 29.3127 16.3411 29.7764 18.6691C30.24 20.997 30.0028 23.4102 29.0948 25.6034C28.1868 27.7966 26.6487 29.6712 24.6752 30.9901C22.7016 32.309 20.3812 33.013 18.0075 33.013C15.6338 33.013 13.3134 32.309 11.3399 30.9901C9.36629 29.6712 7.82823 27.7966 6.92021 25.6034C6.01219 23.4102 5.775 20.997 6.23867 18.6691C6.70233 16.3411 7.846 14.2029 9.52501 12.525L18 4.03497Z"
+                                    stroke="#F2F4F9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_dd_9_132" x="-3" y="0" width="42" height="43"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feMorphology radius="1" operator="erode" in="SourceAlpha"
+                                        result="effect1_dropShadow_9_132" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix"
+                                        values="0 0 0 0 0.0470588 0 0 0 0 0.0470588 0 0 0 0 0.0509804 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_9_132" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feMorphology radius="1" operator="erode" in="SourceAlpha"
+                                        result="effect2_dropShadow_9_132" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix"
+                                        values="0 0 0 0 0.0470588 0 0 0 0 0.0470588 0 0 0 0 0.0509804 0 0 0 0.1 0" />
+                                    <feBlend mode="normal" in2="effect1_dropShadow_9_132"
+                                        result="effect2_dropShadow_9_132" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_9_132"
+                                        result="shape" />
+                                </filter>
+                            </defs>
+                        </svg>
+                        <div class="weather-card-info">
+                            <p>Humidity</p>
+                            <p id="humidity"></p>
+                        </div>
+
+                    </div>
+                    <div class="weather-card">
+                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_dd_9_161)">
+                                <path
+                                    d="M16.385 6.88497C16.7335 6.53444 17.1631 6.27544 17.6358 6.13099C18.1085 5.98653 18.6095 5.9611 19.0944 6.05696C19.5793 6.15282 20.033 6.36699 20.4151 6.68044C20.7973 6.99389 21.0961 7.39691 21.2849 7.85366C21.4738 8.31042 21.5469 8.80676 21.4977 9.29857C21.4485 9.79038 21.2786 10.2624 21.003 10.6727C20.7274 11.083 20.3547 11.4189 19.918 11.6504C19.4814 11.882 18.9943 12.002 18.5 12H5M20.885 29.115C21.2335 29.4655 21.6631 29.7245 22.1358 29.869C22.6085 30.0134 23.1095 30.0388 23.5944 29.943C24.0793 29.8471 24.533 29.633 24.9151 29.3195C25.2973 29.0061 25.5961 28.603 25.7849 28.1463C25.9738 27.6895 26.0469 27.1932 25.9977 26.7014C25.9485 26.2096 25.7786 25.7375 25.503 25.3272C25.2274 24.9169 24.8547 24.5811 24.418 24.3495C23.9814 24.118 23.4943 23.9979 23 24H5M28.595 11.595C29.0313 11.1598 29.5681 10.8388 30.1579 10.6605C30.7477 10.4821 31.3724 10.4519 31.9767 10.5724C32.581 10.6929 33.1463 10.9605 33.6226 11.3515C34.0989 11.7425 34.4715 12.2448 34.7075 12.814C34.9434 13.3832 35.0355 14.0019 34.9755 14.6151C34.9155 15.2284 34.7053 15.8175 34.3634 16.3302C34.0216 16.8429 33.5587 17.2635 33.0157 17.5547C32.4726 17.8459 31.8662 17.9989 31.25 18H5"
+                                    stroke="#F2F4F9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_dd_9_161" x="-1" y="0" width="42" height="43"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feMorphology radius="1" operator="erode" in="SourceAlpha"
+                                        result="effect1_dropShadow_9_161" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix"
+                                        values="0 0 0 0 0.0470588 0 0 0 0 0.0470588 0 0 0 0 0.0509804 0 0 0 0.05 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_9_161" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                    <feMorphology radius="1" operator="erode" in="SourceAlpha"
+                                        result="effect2_dropShadow_9_161" />
+                                    <feOffset dy="4" />
+                                    <feGaussianBlur stdDeviation="2" />
+                                    <feComposite in2="hardAlpha" operator="out" />
+                                    <feColorMatrix type="matrix"
+                                        values="0 0 0 0 0.0470588 0 0 0 0 0.0470588 0 0 0 0 0.0509804 0 0 0 0.1 0" />
+                                    <feBlend mode="normal" in2="effect1_dropShadow_9_161"
+                                        result="effect2_dropShadow_9_161" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_9_161"
+                                        result="shape" />
+                                </filter>
+                            </defs>
+                        </svg>
+
+                        <div class="weather-card-info">
+                            <p>Wind</p>
+                            <p id="wind-speed"></p>
+                        </div>
+
+                    </div>
+                    <div class="weather-card">
+                        <img id="weather-icon" alt="Weather Icon" width="36" height="36" src="" style="display: none;">
+                        <div class="weather-card-info">
+                            <p>Condition</p>
+                            <p id="condition"></p>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </main>

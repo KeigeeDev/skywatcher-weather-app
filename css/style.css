@@ -221,15 +221,13 @@ header h1 {
 }
 
 #weather-info {
-    max-width: 600px;
-    margin: var(--space-5) auto;
+    max-width: 645px;
+    margin: 0 auto;
     padding: var(--space-5);
-    /* background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: var(--shadow-lg);
-    opacity: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transform: translateY(20px);
     transition: all 0.5s ease;
 }
@@ -244,7 +242,7 @@ header h1 {
     font-size: 2rem;
     color: white;
     text-align: center;
-    margin: 0 0 var(--space-4);
+    margin: var(--space-3);
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -261,6 +259,7 @@ header h1 {
     font-weight: 700;
     color: white;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin: var(--space-3);
 }
 
 #weather-icon {
@@ -281,19 +280,45 @@ header h1 {
 }
 
 #weather-conditions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
 }
 
 #weather-conditions p {
-    background: rgba(255, 255, 255, 0.2);
-    padding: var(--space-3);
-    border-radius: var(--radius-md);
     color: white;
+    margin: var(--space-1);
     text-align: center;
     font-weight: 500;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.weather-card {
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    border-right: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.weather-card:last-child {
+    border-right: none;
+}
+
+.weather-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-1);
 }
 
 #error-message {

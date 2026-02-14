@@ -15,11 +15,11 @@ export function updateUI(data) {
     errorMessageElement.textContent = '';
     weatherInfo.classList.add('show');
 
-    tempDisplay.innerText = `Temperature: ${Math.round(data.current.temp_c)}°C`;
-    cityDisplay.innerText = `City: ${data.location.name}`;
-    conditionDisplay.innerText = `Condition: ${data.current.condition.text}`;
-    humidityDisplay.innerText = `Humidity: ${data.current.humidity}%`;
-    windSpeedDisplay.innerText = `Wind Speed: ${data.current.wind_kph} km/h`;
+    tempDisplay.innerText = `${Math.round(data.current.temp_c)}°C`;
+    cityDisplay.innerText = `${data.location.name}`;
+    conditionDisplay.innerText = `${data.current.condition.text}`;
+    humidityDisplay.innerText = `${data.current.humidity}%`;
+    windSpeedDisplay.innerText = `${data.current.wind_kph} km/h`;
 
     weatherIcon.src = data.current.condition.icon;
     weatherIcon.style.display = 'block';
