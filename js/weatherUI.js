@@ -28,13 +28,13 @@ export function updateUI(data) {
     const weatherCategory = getWeatherCategory(condition);
 
     const backgroundMap = {
-        clear: 'images/clear.jpg',
-        cloudy: 'images/cloudy.jpg',
-        rain: 'images/rain.jpg',
-        snow: 'images/snow.jpg',
-        thunder: 'images/thunder.jpg',
-        fog: 'images/fog.jpg',
-        default: 'images/default.jpg'
+        clear: '../assets/images/clear.jpg',
+        cloudy: '../assets/images/cloudy.jpg',
+        rain: '../assets/images/rain.jpg',
+        snow: '../assets/images/snow.jpg',
+        thunder: '../assets/images/thunder.jpg',
+        fog: '../assets/images/fog.jpg',
+        default: '../assets/images/default.jpg'
     };
 
     const backgroundUrl = backgroundMap[weatherCategory] || backgroundMap.default;

@@ -2,20 +2,27 @@ import { loadingEl, errorMessageElement } from './domRefs.js';
 import { updateUI, handleError } from './weatherUI.js';
 
 export async function getWeatherData(query) {
-    const API_KEY = process.env.WEATHER_API_KEY;
-    const URL = `${process.env.BASE_URL}?key=${API_KEY}&q=${query}&aqi=no`;
-
     loadingEl.style.display = 'block';
 
-    const response = await fetch(URL);
+    try {
+        // Call the Vercel API endpoint instead of importing the handler
+        const response = await fetch(`/api/weather?city=${encodeURIComponent(query)}`);
 
-    if (!response.ok) {
+        if (!response.ok) {
+            handleError(query);
+            errorMessageElement.style.display = 'flex';
+            loadingEl.style.display = 'none';
+            return;
+        }
+
+        const data = await response.json();
+        updateUI(data);
+        errorMessageElement.style.display = 'none';
+        loadingEl.style.display = 'none';
+    } catch (error) {
+        console.error('Error fetching weather:', error);
         handleError(query);
         errorMessageElement.style.display = 'flex';
-        loadingEl.style.display = 'none';
-    } else {
-        updateUI(await response.json());
-        errorMessageElement.style.display = 'none';
         loadingEl.style.display = 'none';
     }
 }

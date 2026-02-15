@@ -26,13 +26,13 @@
     --radius-lg: 1rem;
 
     /* Background Images */
-    --bg-default: url('../images/default.jpg');
-    --bg-clear: url('../images/clear.jpg');
-    --bg-cloudy: url('../images/cloudy.jpg');
-    --bg-rain: url('../images/rain.jpg');
-    --bg-snow: url('../images/snow.jpg');
-    --bg-thunder: url('../images/thunder.jpg');
-    --bg-fog: url('../images/fog.jpg');
+    --bg-default: url('../assets/images/default.jpg');
+    --bg-clear: url('../assets/images/clear.jpg');
+    --bg-cloudy: url('../assets/images/cloudy.jpg');
+    --bg-rain: url('../assets/images/rain.jpg');
+    --bg-snow: url('../assets/images/snow.jpg');
+    --bg-thunder: url('../assets/images/thunder.jpg');
+    --bg-fog: url('../assets/images/fog.jpg');
 
     /* Shadows */
     --shadow-sm: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.05);
@@ -98,7 +98,6 @@ body.transitioning::before {
 }
 
 .logo {
-    max-width: 200px;
     height: 200px;
     object-fit: cover;
     display: block;
