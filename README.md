@@ -227,7 +227,7 @@ Provide a manual dark mode option for night operations and reduced eye strain.
 
 ## Live Demo
 
-🌐 **[View Live Demo](https://skywatcher-weather.netlify.app)** *(Available upon request)*
+🌐 **[View Live Demo](https://skywatcher-weather-na4x28tfs-khalils-projects-7d774c04.vercel.app)** 
 
 ---
 
